@@ -128,8 +128,11 @@ themeButton.addEventListener('click', () => {
 function applyTheme(theme) {
     document.body.classList.toggle('dark-mode', theme === 'dark');
 
+    // /home/prt/Desktop/Coding/frontend_mentor/deploy_extension_manager/assets/images/icon-sun.svg
+
     // update icon dynamically
-    themeIcon.src = theme === 'dark' ? '/Frontent_Mentor_Folder/Browser-extension-manager-ui-project/browser-extensions-manager-ui-main/browser-extensions-manager-ui-main/assets/images/icon-sun.svg' : '/Frontent_Mentor_Folder/Browser-extension-manager-ui-project/browser-extensions-manager-ui-main/browser-extensions-manager-ui-main/assets/images/icon-moon.svg';
+    themeIcon.src = theme === 'dark' ? '../assets/images/icon-sun.svg' : '../assets/images/icon-moon.svg';
+
     themeIcon.alt = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
 
     // apply dark-mode class to the header
