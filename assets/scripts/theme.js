@@ -129,7 +129,7 @@ function applyTheme(theme) {
     document.body.classList.toggle('dark-mode', theme === 'dark');
 
     // update icon dynamically
-    themeIcon.src = theme === 'dark' ? '/assets/images/icon-sun.svg' : '/assets/images/icon-moon.svg';
+    themeIcon.src = theme === 'dark' ? './assets/images/icon-sun.svg' : './assets/images/icon-moon.svg';
 
     themeIcon.alt = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
 
