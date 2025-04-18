@@ -1,0 +1,256 @@
+:root {
+    /* light theme */
+    --bg-color: rgb(235, 241, 241);
+    --card-bg-color: rgb(255, 255, 255);
+    --button-hover-color: rgb(233, 89, 6);
+    --light-mode-text-color-for-btn-hover: rgb(255, 255, 255);
+    --light-mode-nonfocus-text-color-for-btn-hover: rgb(0, 0, 0);
+    --button-nonfocus-hover-color: rgb(212, 210, 210);
+
+    /* dark theme */
+    --dark-bg-color: rgb(3, 8, 56);
+    --dark-text-color: rgb(255, 255, 255);
+    --extension-item-dark-bg-color: rgb(29, 30, 56);
+
+    /* attribution */
+    --attribution-text-color: rgb(233, 89, 6);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 50px;
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--card-bg-color);
+    padding: 6px;
+    margin: 5px;
+}
+
+.header.dark-mode {
+    background-color: var(--extension-item-dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+.header img {
+    display: inline-block;
+}
+
+.header button {
+    padding: 8px;
+    border-radius: 20%;
+    border: none;
+}
+
+.header button:hover {
+    background-color: var(--button-nonfocus-hover-color);
+    border-color: var(--button-hover-color);
+}
+
+.header button.dark-mode {
+    background-color: var(--dark-bg-color);
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    margin: 12px;
+}
+
+.navbar .navbar-category button {
+    border-radius: 20px;
+    width: 6em;
+    padding: 12px;
+    margin: 3px;
+    border: none;
+    background-color: var(--card-bg-color);
+}
+
+.navbar .navbar-category button:hover {
+    background-color: var(--button-nonfocus-hover-color);
+    color: var(--light-mode-nonfocus-text-color-for-btn-hover);
+    cursor: pointer;
+    /* border-color: var(--button-hover-color); */
+}
+
+.navbar .navbar-category button.dark-mode.active-button {
+    background-color: var(--button-hover-color);
+    color: var(--light-mode-text-color-for-btn-hover);
+}
+
+.navbar .navbar-category button.active-button {
+    background-color: var(--button-hover-color);
+    color: var(--light-mode-text-color-for-btn-hover);
+}
+
+.navbar .navbar-category button.dark-mode {
+    background-color: var(--extension-item-dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+.navbar .navbar-category button.dark-mode:hover {
+    background-color: var(--button-hover-color);
+    color: var(--light-mode-text-color-for-btn-hover);
+    cursor: pointer;
+}
+
+/* main-content css grid */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    gap: 20px 20px;
+    max-width: 100%;
+}
+
+.extension-item {
+    padding: 20px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: var(--card-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.extension-item.dark-mode {
+    background-color: var(--extension-item-dark-bg-color);
+    color: var(--dark-text-color);
+    border-radius: 20px;
+}
+
+.image-and-text {
+    display: flex;
+    gap: 1em;
+    align-items:flex-start;
+    width: 100%;
+}
+
+.toggle-container {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    justify-content: space-between;
+}
+
+.toggle-container button {
+    padding: 8px;
+    border-radius: 20px;
+    border: 0.5px solid;
+    background-color: var(--card-bg-color);
+}
+
+.toggle-container button:hover {
+    cursor: pointer;
+    border-color: var(--button-hover-color);
+    background-color: var(--button-hover-color);
+    color: var(--light-mode-text-color-for-btn-hover);
+}
+
+.toggle-container button.dark-mode:hover {
+    cursor: pointer;
+    border-color: var(--button-hover-color);
+    background-color: var(--button-hover-color);
+    color: var(--light-mode-text-color-for-btn-hover);
+}
+
+.toggle-container button.dark-mode {
+    background-color: var(--extension-item-dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+.toggle-container .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-container .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-container .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.toggle-container .switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+.toggle-container .switch input:checked + .slider {
+    background-color: var(--button-hover-color);
+}
+
+.toggle-container .switch input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider {
+    border-radius: 34px;
+}
+
+.slider:before {
+    border-radius: 50%;
+}
+
+/* media queries */
+@media (max-width: 720px) {
+	.main-content {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.attribution {
+    margin-top: 20px;
+    font-weight: 800;
+    font-size: medium;
+}
+
+.attribution a {
+    text-decoration: none;
+    color: var(--attribution-text-color);
+}
